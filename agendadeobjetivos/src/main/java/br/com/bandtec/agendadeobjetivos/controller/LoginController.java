@@ -11,7 +11,7 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<String> validarLogin(@RequestBody Credenciais credenciais) {
-		if(credenciais.getLogin().equals(credenciais.getSenha())) {
+		if(credenciais.getLogin() != null && credenciais.getSenha() != null) {
 			return ResponseEntity.ok("sucesso");
 		}  else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("erro");
