@@ -23,6 +23,8 @@ public class Usuario {
 	@JsonProperty
 	private String senha;
 
+	public Usuario(){}
+
 	public Usuario(String nome, Integer idade) {
 		this.nome = nome;
 		this.idade = idade;
