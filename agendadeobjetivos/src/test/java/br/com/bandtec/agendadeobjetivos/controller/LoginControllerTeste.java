@@ -11,7 +11,7 @@ public class LoginControllerTeste {
 	
 	@Test
 	public void loginComSucesso() {
-		LoginController controller = new LoginController();
+		LoginController controller = new LoginController(null);
 
 		ResponseEntity<String> resposta  = controller.validarLogin(new Credenciais("login", "login"));
 
@@ -23,7 +23,7 @@ public class LoginControllerTeste {
 	
 	@Test
 	public void loginComFalha() {
-		LoginController controller = new LoginController();
+		LoginController controller = new LoginController(null);
 		
 		ResponseEntity<String> resposta = controller.validarLogin(new Credenciais("login", "senha"));
 		

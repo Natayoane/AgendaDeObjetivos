@@ -1,5 +1,6 @@
 package br.com.bandtec.agendadeobjetivos.domain;
 
+import br.com.bandtec.agendadeobjetivos.controller.Credenciais;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,13 +16,8 @@ public class Usuario {
 	@GeneratedValue
 	private Long IdUsuario;
 
-	@Column(name = "loginUsuario")
-	@JsonProperty
-	private String login;
-
-	@Column(name = "senhaUsuario")
-	@JsonProperty
-	private String senha;
+	@Embedded
+	private Credenciais credenciais;
 
 	public Usuario(){}
 
@@ -40,7 +36,4 @@ public class Usuario {
 
 	public Long getIdUsuario() { return IdUsuario; }
 
-	public String getLogin() { return login; }
-
-	public String getSenha() { return senha; }
 }

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
-@Entity //Obejeto que vai persistir em banco
+@Entity //Objeto que vai persistir em banco
 @Table(name = "tbObjetivo")
 public class Objetivo {
 
@@ -26,14 +26,19 @@ public class Objetivo {
     @JsonProperty
     private LocalDate dataMaximaParaExecucao;
 
+    @Embedded
+    private Prioridade prioridade;
+
     public Objetivo() {}
 
-    public Objetivo(String titulo, String descricao, LocalDate dataMaximaParaExecucao) {
-        super();
+
+    public Objetivo(String titulo, String descricao, LocalDate dataMaximaParaExecucao, Prioridade prioridade) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataMaximaParaExecucao = dataMaximaParaExecucao;
+        this.prioridade = prioridade;
     }
+
 
     @Override
     public String toString() {
