@@ -26,7 +26,7 @@ public class ObjetivosController {
         return ResponseEntity.ok("Sucesso");
     }
 
-    @GetMapping("/objetivos/data{data}")
+    @GetMapping("/objetivos/data/{data}")
     public ResponseEntity<List<Objetivo>> obterPorData(@PathVariable("data") String dataString) {
         LocalDate data = LocalDate.parse(dataString);
 

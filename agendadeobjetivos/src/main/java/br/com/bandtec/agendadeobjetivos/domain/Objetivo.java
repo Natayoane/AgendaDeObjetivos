@@ -26,6 +26,10 @@ public class Objetivo {
     @JsonProperty
     private LocalDate dataMaximaParaExecucao;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private  Usuario usuario;
+
     @Embedded
     private Prioridade prioridade;
 

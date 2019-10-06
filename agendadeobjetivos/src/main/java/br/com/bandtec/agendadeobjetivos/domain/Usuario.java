@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tbUsuario")
@@ -19,13 +20,19 @@ public class Usuario {
 	@Embedded
 	private Credenciais credenciais;
 
+	@OneToMany(mappedBy = "usuariozx")
+	private List<Objetivo> objetivos;
+
 	public Usuario(){}
 
-	public Usuario(String nome, Integer idade) {
+
+	public Usuario(String nome, Integer idade, Credenciais credenciais, List<Objetivo> objetivos) {
 		this.nome = nome;
 		this.idade = idade;
+		this.credenciais = credenciais;
+		this.objetivos = objetivos;
 	}
-	
+
 	public Integer getIdade() {
 		return idade;
 	}
